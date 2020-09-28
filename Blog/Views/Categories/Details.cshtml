@@ -1,0 +1,73 @@
+﻿@model Blog.Models.Categories
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.Robot = "noindex, nofollow";
+    ViewBag.Google = "noindex, nofollow";
+    ViewBag.Bing = "noindex, nofollow";
+    ViewBag.Url = "";
+}
+<ul class="nav nav-tabs">
+    <li class="active">@Html.ActionLink("Categories", "Index", "Categories")</li>
+    <li>@Html.ActionLink("Subcategories", "Index", "Subcategories")</li>
+    <li>@Html.ActionLink("Articles", "Index", "Articles")</li>
+    <li>@Html.ActionLink("Images", "Index", "Images")</li>
+    <li>@Html.ActionLink("Imagemap", "Index", "Imagemaps")</li>
+    <li>@Html.ActionLink("Tags", "Index", "Tags")</li>
+    <li>@Html.ActionLink("Tagmap", "Index", "Tagmaps")</li>
+    <li>@Html.ActionLink("Comments", "Index", "Comments")</li>
+    <li>@Html.ActionLink("Replies", "Index", "Replies")</li>
+    <li>@Html.ActionLink("Shop", "Index", "Shops")</li>
+</ul><br /><br />
+<h2>Details</h2>
+
+<div>
+    <h4>Categories</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Snippet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Snippet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Introduction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Introduction)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Cat_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Blog.Models.Replies>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.Robot = "noindex, nofollow";
+    ViewBag.Google = "noindex, nofollow";
+    ViewBag.Bing = "noindex, nofollow";
+    ViewBag.Url = "";
+}
+<ul class="nav nav-tabs">
+    <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+    <li>@Html.ActionLink("Subcategories", "Index", "Subcategories")</li>
+    <li>@Html.ActionLink("Articles", "Index", "Articles")</li>
+    <li>@Html.ActionLink("Images", "Index", "Images")</li>
+    <li>@Html.ActionLink("Imagemap", "Index", "Imagemaps")</li>
+    <li>@Html.ActionLink("Tags", "Index", "Tags")</li>
+    <li>@Html.ActionLink("Tagmap", "Index", "Tagmaps")</li>
+    <li>@Html.ActionLink("Comments", "Index", "Comments")</li>
+    <li class="active">@Html.ActionLink("Replies", "Index", "Replies")</li>
+    <li>@Html.ActionLink("Shop", "Index", "Shops")</li>
+</ul><br /><br />
+<h2>Replies</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Replying to:
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Last_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments.First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Last_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Reply_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Reply_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Reply_Id })
+            </td>
+        </tr>
+    }
+
+</table>

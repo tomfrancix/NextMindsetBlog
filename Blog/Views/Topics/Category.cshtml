@@ -1,0 +1,182 @@
+﻿@model IEnumerable<Blog.Models.Articles>
+@{ 
+    ViewBag.Title = "Categories";
+    ViewBag.Description = "THE resource for light-weight morning-coffee news analysis, product reviews and 'how to' guides for a range of topic areas.";
+
+    ViewBag.Robot = "index, follow";
+    ViewBag.Google = "index, follow";
+    ViewBag.Bing = "index, follow";
+    ViewBag.Url = "Topics/Category/" + ViewBag.idc.Cat_Id;
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="jumbotron custom-jumbotron-dark custom-jumbotron-header">
+                <h2>Category:  @ViewBag.idc.Title</h2>
+            </div>
+            <div class="content-box">
+
+                @{ var i = 0;
+                    foreach (var item in Model)
+                    {
+
+                        i++;
+                        if (i > 20)
+                        {
+                            break;
+                        }
+
+                    }
+                    var x = i;}
+                @foreach (var item in Model.Reverse())
+                {
+
+                    if (item.Categories.Cat_Id == ViewBag.idc.Cat_Id)
+                    {
+
+                        <article>
+                            <header class="header-home">
+                                <h2 class="title-home"><a href="\Blog/Article/@Html.DisplayFor(modelItem => item.Art_Id)"> @Html.DisplayFor(modelItem => item.Title)</a></h2>
+                                <div class="post-info">
+                                    <span><i class="fa fa-user"></i> @Html.DisplayFor(modelItem => item.Author_Name)</span>
+                                    <span><i class="fa fa-calendar"></i> @Html.DisplayFor(modelItem => item.Date)</span>
+                                    <span><i class="fa fa-tags"></i> @Html.DisplayFor(modelItem => item.Subcategories.Title)</span>
+                                </div>
+                            </header>
+                            <br />
+                            <div style="width:100%;overflow:hidden;" class="height300"><img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Image)" class="width90" /></div>
+                            <div class="width90">
+                                <p>@Html.DisplayFor(modelItem => item.Lead)</p>
+                                @Html.ActionLink("Continue Reading", "Article", "Blog", new { id = item.Art_Id }, new { @class = "btn btn-default" })
+                            </div>
+                        </article>
+                    }
+                    x--;
+
+                    if (x == 0)
+                    {
+                        break;
+                    }
+                }
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <article>
+                    <div class="newsletter-signup">
+                        <h4 style="font-weight:600;line-height:25px;">FOR MORE CONTENT LIKE THIS EVERY WEEK SIGN UP BELOW FOR THE WEEKLY NEXT MINDSET NEWSLETTER!</h4>
+                        <form action="https://formspree.io/xeqzdjkg"
+                              method="POST">
+                            <label>
+                                <input style="padding:5px; font-size:120%;" type="text" name="_replyto" placeholder="Enter Your Email...">
+                            </label>
+                            <button class="btn btn-success" type="submit">SIGN UP</button>
+
+                            <h6>By subscribing, you consent to receive emails from Next Mindset. We respect your privacy and take protecting it seriously. You can easily unsubscribe at any time.</h6>
+
+                        </form>
+                        <br />
+                    </div>
+                </article>
+                <article>
+                    <div class="categories-panel" style="border-bottom:none;">
+                        <h3>GUIDES</h3>
+                        @foreach (var item in ViewBag.Categories)
+                        {
+                            if (item.Title == "guides")
+                            {
+                                foreach (var article in Model)
+                                {
+                                    if (article.Cat_Id == item.Cat_Id)
+                                    {
+                                        if (article.Status == "Approved")
+                                        {
+                                            <div class="sidebar-thumbnail">
+                                                <br />
+
+                                                <div class="sidebar-thumbnail-img">
+                                                    <a><img src="~/Content/Images/@article.Image" style="width:100%;" /></a>
+                                                </div>
+
+                                                <div class="sidebar-thumbnail-text">
+                                                    <a href="\Home/Details/@article.Art_Id">@article.Title</a>
+                                                    <h5>@article.Date</h5>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+
+                        <br />
+                    </div><br />
+                </article>
+
+
+            </div>
+            <div class="row">
+                <article>
+                    <div class="categories-panel" style="border-bottom:none;">
+                        <h3>PRODUCT REVIEWS</h3>
+                        @foreach (var item in ViewBag.Categories)
+                        {
+                            if (item.Title == "interesting")
+                            {
+                                foreach (var article in Model)
+                                {
+                                    if (article.Cat_Id == item.Cat_Id)
+                                    {
+                                        if (item.Status == "Approved")
+                                        {
+                                            <div class="sidebar-thumbnail">
+                                                <br />
+
+                                                <div class="sidebar-thumbnail-img">
+                                                    <a><img src="~/Content/Images/@article.Image" style="width:100%;" /></a>
+                                                </div>
+
+                                                <div class="sidebar-thumbnail-text">
+                                                    <a href="Home/Details/@article.Art_Id">@article.Title</a>
+                                                    <h5>@article.Date</h5>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        <br />
+                    </div><br />
+                </article>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Read a random article</h2>
+            <img src="~/Content/Images/arthealth.jpg" width="350" height="230" />
+            <p>
+                Next Mindset has so many articles to choose from. If this is your first visit why not read a randomly chosen article to begin!
+            </p>
+            <p><a class="btn btn-default" href="\Home/Category_List/1">Start Reading &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Browse topics</h2>
+            <img src="~/Content/Images/artcat.jpg" width="350" height="230" />
+            <p>Here you can browse the topics available! If you cant find what you want, send us a message and we will see what we can do.</p>
+            <p><a class="btn btn-default" href="\Home/Categories">Start Reading &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Most recent articles</h2>
+            <img src="~/Content/Images/artcovid.jpg" width="350" height="230" />
+            <p>Content is posted every Monday and Friday. Click here if you are a Regualar Reader!</p>
+            <p><a class="btn btn-default" href="\Home/Recent">Start Reading &raquo;</a></p>
+        </div>
+    </div>
+</div>

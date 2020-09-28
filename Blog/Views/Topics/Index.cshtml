@@ -1,0 +1,139 @@
+﻿@model IEnumerable<Blog.Models.Categories>
+@{ 
+    ViewBag.Title = "Topics";
+    ViewBag.Description = "THE resource for light-weight morning-coffee news analysis, product reviews and 'how to' guides for a range of topic areas.";
+
+    ViewBag.Robot = "index, follow";
+    ViewBag.Google = "index, follow";
+    ViewBag.Bing = "index, follow";
+    ViewBag.Url = "Topics";
+}
+
+<div class="jumbotron custom-jumbotron-dark custom-jumbotron-header"><h2>CATEGORIES</h2></div>
+<div style="width:100%;text-align:center;">
+    <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=2&p=48&l=ur1&category=amazon_music_bounty&banner=1S7QPRHBCK6W9HRPHV82&f=ifr&linkID=85a9f282d99af0de11c0022cac2c614c&t=regularreads-21&tracking_id=regularreads-21" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+</div><div class="categories-page-list" style="padding:10px;">
+    @{double tee = 0.0;
+        var timero = "";}
+    @foreach (var item in Model)
+    {
+
+        if (item.Title == "Inpirational Stories")
+        {
+
+          <div class="categories-panel-option wow fadeInUp" data-wow-delay="@timero">
+              <details>
+                  <summary>@Html.DisplayFor(modelItem => item.Title)</summary><br />
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-md-3">
+                              <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Image)" style="width:100%;" />
+                          </div>
+                          <div class="col-md-9">
+                              <h4> @Html.DisplayFor(modelItem => item.Snippet)</h4>
+                              <h5>@Html.DisplayFor(modelItem => item.Summary)</h5>
+
+                              <div>@Html.ActionLink("Go To Category...", "Category", new { id = item.Cat_Id }, new { @class = "btn btn-default" })</div>
+                              
+                          </div>
+                      </div>
+                  </div>
+
+              </details>
+          </div>
+
+
+        }
+    }
+    @foreach (var item in Model)
+    {
+
+        if (item.Title == "Writing for Next Mindset")
+        {
+
+            <div class="categories-panel-option" style="background-color:green; color:white; border-radius:10px; font-weight:bold;">
+                <details>
+                    <summary>@Html.DisplayFor(modelItem => item.Title)</summary><br />
+                    <div class="container-fluid" style="padding:10px;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Image)" style="width:80%;" />
+                            </div>
+                            <div class="col-md-9">
+                                <h4 class="contentst"> @Html.DisplayFor(modelItem => item.Snippet)</h4>
+                                <h5 class="contentst">@Html.DisplayFor(modelItem => item.Summary)</h5>
+                                <a style="display:inline-flex">
+                                    <div>@Html.ActionLink("Go To Category...", "Category_List", new { id = item.Cat_Id }, new { @class = "btn btn-gotocat" })</div>
+                                    <details class="detailscat">
+                                        <summary>View Sub-Categories...</summary>
+                                        @foreach (var subc in item.Subcategories)
+                                        {
+                                            if (subc.Sub_Id != 4)
+                                            {
+                                                if (subc.Sub_Id != 2)
+                                                {
+                                                    <div class="categories-panel-option"><a href="\Home/Subcategory_List/@subc.Sub_Id">@subc.Title</a></div>
+                                                }
+                                            }
+
+                                        }
+
+
+                                    </details>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </details>
+            </div>
+
+
+        }
+    }
+    @foreach (var item in Model)
+    {
+        if (item.Title != "Writing for Regular Reads")
+        {
+            timero = tee + "s";
+            <div class="categories-panel-option wow fadeInUp" data-wow-delay="@timero">
+                <details>
+                    <summary>@Html.DisplayFor(modelItem => item.Title)</summary><br />
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Image)" style="width:100%;" />
+                            </div>
+                            <div class="col-md-9">
+                                <h4> @Html.DisplayFor(modelItem => item.Snippet)</h4>
+                                <h5>@Html.DisplayFor(modelItem => item.Summary)</h5>
+
+                                <div>@Html.ActionLink("Go To Category...", "Category", new { id = item.Cat_Id }, new { @class = "btn btn-default" })</div>
+                                <details class="detailscat">
+                                    <summary>View Sub-Categories...</summary>
+                                    @foreach (var subc in item.Subcategories)
+                                    {
+                                        if (subc.Sub_Id != 4)
+                                        {
+                                            if (subc.Sub_Id != 2)
+                                            {
+                                                <a href="\Topics/Subcategory/@subc.Sub_Id"><div class="categories-panel-option" id="categoryhover">@subc.Title</div></a>
+                                            }
+                                        }
+                                    }
+
+
+                                </details>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </details>
+            </div>
+            tee = tee + 0.3;
+        }
+    }
+
+</div>
+

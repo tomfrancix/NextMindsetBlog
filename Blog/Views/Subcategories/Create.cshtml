@@ -1,0 +1,91 @@
+﻿@model Blog.Models.Subcategories
+
+@{
+    ViewBag.Title = "Create";
+    ViewBag.Robot = "noindex, nofollow";
+    ViewBag.Google = "noindex, nofollow";
+    ViewBag.Bing = "noindex, nofollow";
+    ViewBag.Url = "";
+}
+<ul class="nav nav-tabs">
+    <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+    <li class="active">@Html.ActionLink("Subcategories", "Index", "Subcategories")</li>
+    <li>@Html.ActionLink("Articles", "Index", "Articles")</li>
+    <li>@Html.ActionLink("Images", "Index", "Images")</li>
+    <li>@Html.ActionLink("Imagemap", "Index", "Imagemaps")</li>
+    <li>@Html.ActionLink("Tags", "Index", "Tags")</li>
+    <li>@Html.ActionLink("Tagmap", "Index", "Tagmaps")</li>
+    <li>@Html.ActionLink("Comments", "Index", "Comments")</li>
+    <li>@Html.ActionLink("Replies", "Index", "Replies")</li>
+    <li>@Html.ActionLink("Shop", "Index", "Shops")</li>
+</ul><br /><br />
+<h2>Create</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Subcategories</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cat_Id, "Cat_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Cat_Id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Cat_Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="imageFile" />
+                <img src="~/Content/Images/@Html.DisplayFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })" width="200" />
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Snippet, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Snippet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Snippet, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Summary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Introduction, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Introduction, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Introduction, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

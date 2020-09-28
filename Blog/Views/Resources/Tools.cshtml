@@ -1,0 +1,263 @@
+﻿
+@{
+    ViewBag.Title = "Tools";
+
+    ViewBag.Robot = "index, follow";
+    ViewBag.Google = "index, follow";
+    ViewBag.Bing = "index, follow";
+    ViewBag.Url = "Resources/Tools";
+}
+
+<div class="jumbotron custom-jumbotron-dark custom-jumbotron-header"><h2>Tools</h2></div>
+<div class="container">
+    <div class="col-md-2" style="padding:5px;">
+        <div class="panel" style="padding:5px; background-color:rgba(40,50,60,0.05);border-radius:5px;border-color:grey;">
+            <ul style="list-style:none;padding:0;">
+                <li>
+                    <button class="tablinks tooltab" onclick="openTab(event, 'BMI')">BMI Calculator</button>
+                </li>
+                <li>
+                    <button class="tablinks tooltab" onclick="openTab(event, 'bfc')">Body Fat Percentage Calculator</button>
+                </li>
+                <li>
+                    <button class="tablinks tooltab" onclick="openTab(event, 'CalCal')">Metabolism Calculator</button>
+                </li>
+                <li>
+                    <button class="tablinks tooltab" onclick="openTab(event, 'CalorieC')">Calorie Calculator</button>
+                </li>
+                <li>
+                    <button class="tablinks tooltab" onclick="openTab(event, 'MACRO')">Macronutrient Calculator</button>
+                </li>
+                <li>
+                    <button class="tablinks tooltab" onclick="openTab(event, 'maxrate')">Maximum Heart Rate Calculator</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="panel" style="padding:5px; background-color:white;border-radius:5px;border-color:grey;">
+
+            <div id="BMI" class="tabcontent">
+                <h3><span class="fa fa-calculator"> </span>   BODY MASS INDEX CALCULATOR</h3>
+                <form name="bmiForm">
+                    <div class="formgroup"><label>Your Weight(kg):</label> <input type="text" name="weight" size="10"><br /></div>
+                    <div class="formgroup"><label>Your Height(cm): </label><input type="text" name="height" size="10"><br /></div>
+                    <div class="formgroup" style="background-color:rgba(255,155,50,0.2);"><input type="button" class="btn btn-default" value="Calculate BMI" onClick="calculateBmi()"><br />OR <br /><input type="reset" class="btn btn-default" value="Reset" /></div>
+                    <div class="formgroup" style="background-color:rgba(40,50,60,1); color:white;"><label> Your BMI: </label><input type="text" name="bmi" size="10" style="background-color:rgba(40,50,60,1);text-align:center;color:chartreuse;"><br /><label>This Means: </label><input type="text" name="meaning" size="25" style="text-align:center;background-color:rgba(40,50,60,1);color:chartreuse;"><br /></div>
+
+                </form> <h5>Please be aware, this calculator only <br /> takes into account normal adult muscle <br />ratios and as such this calculator will <br />be ineffective if you are either a child or a bodybuilder.</h5>
+
+            </div>
+
+            <div id="CalorieC" class="tabcontent">
+                <h3><span class="fa fa-calculator">  </span> CALORIE CALCULATOR</h3>
+
+                <form name="dailyCalories">
+                    <div class="formgroup">
+                        <label>Gender:</label>
+                        <select name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="formgroup">
+                        <label>Your Weight(kg): </label>
+                        <input type="text" name="weight" size="10"><br />
+                    </div>
+                    <div class="formgroup">
+                        <label>Your Height(cm): </label>
+                        <input type="text" name="height" size="10"><br />
+                    </div>
+                    <div class="formgroup">
+                        <label>Your Age:</label>
+                        <input type="number" name="age" size="10"><br />
+                    </div>
+                    <div class="formgroup">
+                        <label> Activity Level:</label>
+                        <select name="activity">
+                            <option value="sedentary">Sedentary</option>
+                            <option value="lightly">Lightly</option>
+                            <option value="moderately">Moderately</option>
+                            <option value="very">Very</option>
+                            <option value="extremely">Extremely</option>
+                        </select>
+                    </div><br />
+                    <div class="formgroup" style="background-color:rgba(255,155,50,0.2);"><input class="btn btn-default" type="button" value="Calculate" onClick="calculateDailyCal()"><br />OR<br /><input type="reset" class="btn btn-default" value="Reset" /></div>
+                    <div class="formgroup" style="background-color:rgba(40,50,60,1); color:white;">
+                        <p style="color:white;"> You should consume roughly <span id="howmanycals">#####</span> calories each day!</p>
+                        <ul style="width:100%;padding:0;">
+                            <li id="mntots" style="color:white;"></li>
+                            <li id="carboz" style="color:white;"></li>
+                            <li id="proteinz" style="color:white;"></li>
+                            <li id="fatz" style="color:white;"></li>
+                        </ul>
+                    </div>
+
+                </form>
+
+
+            </div>
+            <div id="bfc" class="tabcontent">
+                <h3><span class="fa fa-calculator">  </span>  BODY FAT PERCENTAGE CALCULATOR</h3>
+
+                <form name=fp>
+
+                    <div class="formgroup">
+                        <label>Measuring System</label>
+
+                        <select id=msf onchange=msystem();>
+                            <option value=metric>Metric (Kgs, Cm)
+                            <option value=us>US (lbs, inches)
+                        </select>
+                    </div>
+                    <div class="formgroup"><label>Sex</label><select id=sf><option value=m>Male<option value=f>Female</select></div>
+                    <div class="formgroup"> <label>Height </label><span id=thf>(Cm)</span><input id=hf></div>
+                    <div class="formgroup"><label> Neck Girth</label><span id=tneck> (Cm)</span><input id=neck></div>
+                    <div class="formgroup">
+                        <label>Waist </label><span id=twaist>(Cm)</span>
+                        <input id=waist>
+                    </div>
+                    <div class="formgroup"><label>Hips </label><span id=thips>(Cm)</span><input id=hips></div>
+                    <div class="formgroup" style="background-color:rgba(255,155,50,0.2);"><button class="btn btn-default" type=button onclick='bfat();'>Submit</button> OR <button class="btn btn-default" type=reset>Reset</button></div>
+                    <div class="formgroup" style="background-color:rgba(40,50,60,1);color:white;">
+                        <label>
+                            Your Body Fat
+                        </label>
+
+                        <input id=bf style="background-color:rgba(40,50,60,1);color:chartreuse;text-align:center;" class=op>
+
+
+
+                        <label>Body Fat Category</label>
+
+                        <input id=nbf style="background-color:rgba(40,50,60,1);color:chartreuse;text-align:center;" class=op>
+                    </div>
+
+
+                </form>
+
+            </div>
+            <div id="MACRO" class="tabcontent">
+                <h3><span class="fa fa-calculator">  </span> MACRONUTRIENT CALCULATOR</h3>
+                <form id="calculateMacros" action="">
+
+                    <div class="formgroup">
+                        <label for="proteins">Proteins (grams)</label>
+                        <input id="proteins" name="proteins" type="number" placeholder="ex: 15" />
+                    </div>
+
+                    <div class="formgroup">
+                        <label for="carbs">Carbs (grams)</label>
+                        <input id="carbs" name="carbs" type="number" placeholder="ex: 20" />
+                    </div>
+
+                    <div class="formgroup">
+                        <label for="fats">Fats (grams)</label>
+                        <input id="fats" name="fats" type="number" placeholder="ex: 25" />
+                    </div>
+
+                    <div class="formgroup" style="background-color:rgba(255,155,50,0.2);">
+                        <input type="submit" class="btn btn-default" value="Calculate Macros" /><br />
+                        or<br />
+                        <input type="reset" class="btn btn-default" value="Reset" />
+                    </div>
+
+                    <div class="formgroup" style="background-color:rgba(40,50,60,1); color:white;">
+                        <label for="result">Result (kCal)</label>
+                        <input id="result" style="background-color:white;color:black;" name="result" />
+                    </div>
+
+                </form>
+            </div>
+            <div id="CalCal" class="tabcontent">
+                <h3><span class="fa fa-calculator"></span> METABOLISM CALCULATOR</h3>
+
+                <div id="form-error" style="display:none;"></div>
+                <form class="calc-form" id="calc-form">
+
+
+                    <div class="formgroup">
+                        <label for="distance" class="top-label">Age:</label>
+
+                        <div class="field field-large">
+                            <input type="text" name="age" id="age" inputmode="numeric" pattern="[0-9]*">
+                        </div><!--  /.field-large -->
+                    </div>
+                    <div class="formgroup">
+                        <label>Gender:</label>
+                        <div class="field field-medium">
+                            <select name="gender">
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+
+                            </select>
+
+                        </div>
+                    </div><!--  /.field-small -->
+
+                    <div class="formgroup">
+                        <label for="height" class="top-label">Height:</label>
+                        <div class="field-items">
+                            <div style="padding:5px; border:1px solid rgba(0,0,0,0.2);width:280px;">
+                                <div class="field">
+                                    <label for="height-ft">Feet</label>
+                                    <input type="text" name="height_ft" id="height-ft" inputmode="numeric" pattern="[0-9]*">
+
+                                </div><!--  /.field -->
+                                <div class="field">
+                                    <label for="height-in">Inches</label>
+                                    <input type="text" name="height_in" id="height-in" inputmode="numeric" pattern="[0-9]*">
+
+                                </div><!--  /.field -->
+                            </div>
+                            <div style="padding:5px; border:1px solid rgba(0,0,0,0.2);width:280px;margin-top:5px;">
+                                <div class="field">
+                                    <label for="height-cm">...or centimeters</label>
+                                    <input type="text" name="height_cm" id="height-cm" inputmode="numeric" pattern="[0-9]*">
+
+                                </div><!--  /.field -->
+                            </div>
+                        </div><!--  /.field-items -->
+                    </div><!--  /.field-outer -->
+
+                    <div class="formgroup">
+                        <label for="weight" class="top-label">Your weight:</label>
+                        <div class="field-items">
+                            <div class="field field-large">
+                                <input type="text" name="weight" id="weight" inputmode="numeric" pattern="[0-9]*">
+                            </div><!--  /.field-large -->
+                            <div class="field field-small">
+                                <select name="weight_unit">
+                                    <option value="lb">Pounds</option>
+                                    <option value="kg">Kilograms</option>
+                                </select>
+                            </div><!--  /.field-small -->
+                        </div><!--  /.field-items -->
+                    </div><!--  /.field-outer -->
+
+                    <div class="formgroup" style="background-color:rgba(255,155,50,0.2);"><button class="form-submit btn btn-default">Calculate</button></div>
+
+
+
+
+                </form>
+                <div id="resultscalories" style="display:none;padding:20px 5px 20px 5px;background-color:rgba(40,50,60,1);color:white;"></div>
+
+            </div>
+
+            <div id="maxrate" class="tabcontent">
+                <h3><span class="fa fa-calculator"> </span>   Weight Loss Heart Rate Calculator</h3>
+                <form name="vo2max">
+                    <div class="formgroup"><label>Gender</label><select name="gendervo2"><option value=m>Male<option value=f>Female</select></div>
+                    <div class="formgroup"><label>Your Age: </label><input type="text" name="agevo2" size="10"><br /></div>
+                    <div class="formgroup" style="background-color:rgba(255,155,50,0.2);"><input type="button" class="btn btn-default" value="Calculate" onClick="calculateVo2()"><br />OR <br /><input type="reset" class="btn btn-default" value="Reset" /></div>
+                    <div class="formgroup" style="background-color:rgba(40,50,60,1); color:white;"><label> Your Max Heart Rate: </label><input type="text" name="vo2" size="10" style="background-color:rgba(40,50,60,1);text-align:center;color:chartreuse;"><br /><label>Your Fat Burning Heart Rate: </label><input type="text" name="meaning" size="25" style="text-align:center;background-color:rgba(40,50,60,1);color:chartreuse;"><br /></div>
+
+                </form> <h5>Please be aware, this calculator can <br />only estimate your maximum heart rate<br /> based on your age and gender. </h5>
+            </div>
+        </div>
+        </div>
+    <div class="col-md-2">
+        <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=2&p=11&l=ur1&category=fresh&banner=1TTPF0HFS18K5ZPENNG2&f=ifr&linkID=64104f6fa745830ef5413643939cca5a&t=regularreads-21&tracking_id=regularreads-21" width="120" height="600" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+    </div>
+</div>

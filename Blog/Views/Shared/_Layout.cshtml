@@ -1,0 +1,499 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165809904-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-165809904-1');
+    </script>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P23MRNZ');</script>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="p:domain_verify" content="64d9abddad933054d25fce58955db504" />
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="robots" content="@ViewBag.Robots" />
+    <meta name="googlebot" content="@ViewBag.Google" />
+    <meta name="bingbot" content="@ViewBag.Bing" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <link rel="canonical" href="https://www.nextmindset.co.uk/@ViewBag.Url" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/Content/addtohomescreen.css">
+    <script src="~/Content/addtohomescreen.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+    <!-- Theme included stylesheets -->
+    <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+    <meta property="og:url" content="https://www.nextmindset.co.uk/Blog/Article/@ViewBag.articleId" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@ViewBag.ArticleTitle" />
+    <meta property="og:description" content="@ViewBag.ArticleContent" />
+    <meta property="og:image" content="http://www.nextmindset.co.uk/Content/Images/@ViewBag.articleImage" />
+    <script data-ad-client="ca-pub-2566484892030513" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/animate.css">
+</head>
+<body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0"></script>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P23MRNZ"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="navbar navbar-fixed-top">
+        <div class="container" id="navbarwidth">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <div class="icon-barz"></div>
+                    <div class="icon-barz"></div>
+                    <div class="icon-barz"></div>
+                </button>
+                <a href="http://www.nextmindset.co.uk/"><div class="navbar-brand"></div></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="\Search/Index?input=null"><span class="fa fa-search"></span></a></li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Recent Articles", "Index", "Recent")</span></li>
+                    <li>@Html.ActionLink("Topics", "Index", "Topics")</li>
+                    <li class="dropdown">
+                        <a type="button" data-toggle="dropdown">
+                            Resources
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" style="position:relative; z-index:10000;background-color:white;">
+                            <li style="height:auto;"><a style="margin-top:0;color:green;" href="\Resources/Index">Products</a></li>
+                            <li style="height:auto;"><a style="margin-top:0;color:green;" href="\Resources/Tools">Tools and Calculators</a></li>
+                            <li style="height:auto;"><a style="margin-top:0;color:green;" href="\Resources/Recipes">Easy Food Recipes</a></li>
+                            <li style="height:auto;"><a style="margin-top:0;color:green;" href="\Resources/Covid">Coronavirus Statistics</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("About Us", "Index", "About")</li>
+                    <li class="hideon1420" id="privacypolicytab">@Html.ActionLink("Privacy Policy", "Index", "Policy")</li>
+                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                    <li style="display:none;">@Html.ActionLink("Shop", "Index", "Shop")</li>
+                    <li id="showphone" class="hideon1420"><a id="bookmark-phone" href="#" title="Bookmark This Page">Bookmark This Page</a></li>
+
+
+                </ul>
+                @*<a id="bookmark-this" style="background-color:darkorange; color:white;" href="#" title="Bookmark This Page"><span style="font-weight:bold;">14-DAY CHALLENGE</span></a>*@
+
+                <a id="bookmark-this" href="#" title="Bookmark This Page">Bookmark This Page</a>
+
+            </div>
+        </div>
+    </div><br /><br /><br />
+    <div class="container body-content">
+        @RenderBody()
+        <div class="container-fluid" style="text-align:center;">
+            <p style="color:rgba(0,0,0,0.4);">This webpage may contain affiliate links. Please refer to our<a href="\Policy"> Privacy Policy</a> and <a href="\Policy/Disclaimer">Disclaimer</a> for more information.</p>
+        </div>
+        <footer style="border:0px solid black;margin-bottom:-7px;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-2">
+                        <div class="footerdiv">
+                            <ul>
+                                <li><a href="\Home/"><i class="glyphicon glyphicon-home">  </i>   Home</a></li>
+                                <li><a href="\About/"><i class="glyphicon glyphicon-info-sign">  </i>   About</a></li>
+                                <li><a href="\Contact/"><i class="glyphicon glyphicon-envelope">  </i>   Contact</a></li>
+                                <li><a href="\Policy/"><i class="glyphicon glyphicon-eye-open">  </i>   Privacy Policy</a></li>
+                                <li><a href="\Policy/Disclaimer/"><i class="glyphicon glyphicon-eye-open">  </i>   Disclaimer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="footerdiv">
+                            <ul>
+                                <li><a href="\Recent/"><i class="glyphicon glyphicon-signal">  </i>   Recent Updates</a></li>
+                                <li><a href="\Resources/"><i class="glyphicon glyphicon-tags">  </i>   New Products</a></li>
+                                @*<li><i class="glyphicon glyphicon-barcode">  </i>   Gift Cards</li>*@
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    if (User.IsInRole("Admin"))
+                                    {
+                                        <li><i class="glyphicon glyphicon-user">  </i>   @Html.ActionLink("Admin", "Index", "Categories")</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footerdiv">
+                            <ul>
+                                <li><a href="https://www.instagram.com/nextmindsetz/?hl=en"><i class="fa myfa fa-instagram" style="color:hotpink">  </i>   Follow Us On Instagram</a></li>
+                                <li><a href="https://twitter.com/nextmindset"><i class="fa myfa fa-twitter" style="color:lightblue">  </i>   Follow Us On Twitter</a></li>
+                                <li><a href="https://www.linkedin.com/in/thomasseanfahey/"><i class="fa myfa fa-linkedin" style="color:deepskyblue">  </i>   Connect On LinkedIn</a></li>
+                                <li>
+                                    <div class="fb-share-button"
+                                         data-href="https://www.nextmindset.co.uk/"
+                                         data-layout="button_count">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border-color:rgba(40,40,45,0.3);" />
+                <div class="row">
+                    <form action="https://formspree.io/xjvezqdr" method="POST">
+                        <label style="color:white; margin-right:10px;">SUBSCRIBE TO OUR NEWSLETTER  </label><input style="padding:5px; font-size:120%;" type="text" name="_replyto" placeholder="Enter Your Email...">
+                        <input type="submit" class="btn btn-success" value="SIGN UP">
+                    </form><br />
+                    <div class="row" style="padding:0 20px 10px 20px;margin-top:-10px;"><p style="color:grey;">By subscribing, you consent to receive emails from Next Mindset Ltd. We respect your privacy and take protecting it seriously. You can easily unsubscribe at any time.</p></div>
+
+                </div>
+                <div class="row" style="padding:0 10px 0 10px;margin-top:-20px;">
+                    <br />
+                    <p style="color:rgba(200,200,200,1);">&copy; @DateTime.Now.Year - By <a href="http://www.thomasfahey.co.uk" style="color:white;">Next Mindset Ltd</a> - All content is subject to copyright.</p>
+                    <div class="footerthing" style="margin-top:-70px;">@Html.Partial("_LoginPartial")</div>
+                </div>
+            </div>
+        </footer>
+        <br />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        function getInfo(elem) {
+            var groupitems = document.getElementsByClassName("results");
+            var single = document.getElementById('listbox');
+            var ide = elem.id;
+            
+            for (i = 0; i < groupitems.length; i++) {
+                if (groupitems[i].id == ide) {
+                    if (groupitems[i].classList.contains("mystyle")) {
+                        groupitems[i].classList.remove("mystyle");
+                    } else {
+                        groupitems[i].classList.add("mystyle");
+                    }
+                } else {
+                    if (groupitems[i].classList.contains("mystyle")) {
+                        groupitems[i].style.display = 'block';
+                    } else {
+                        groupitems[i].style.display = 'black';
+                    }
+                }
+            }
+            
+        }
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+    <script language="JavaScript">
+        function calculateDailyCal() {
+            var gender = document.dailyCalories.gender.value
+            var weight = document.dailyCalories.weight.value
+            var height = document.dailyCalories.height.value
+            var age = document.dailyCalories.age.value
+            var activity = document.dailyCalories.activity.value
+            var answer = document.getElementById('howmanycals');
+            var finalBmi;
+            var finalBmr;
+            if (weight > 0 && height > 0 && age > 0) {
+                if (gender == "male") {
+                    weight = parseFloat(weight);
+                    height = parseFloat(height);
+                    age = parseFloat(age);
+                    finalBmi = ((weight * 10) + (height * 6.25) - (age * 5) + 5);
+                } else if (gender = "female") {
+                    weight = parseFloat(weight);
+                    height = parseFloat(height);
+                    age = parseFloat(age);
+                    finalBmi = ((weight * 10) + (height * 6.25) - (age * 5) - 161);
+                }
+                switch (activity) {
+                    case "sedentary":
+                        finalBmr = finalBmi * 1.2;
+                        break;
+                    case "lightly":
+                        finalBmr = finalBmi * 1.35;
+                        break;
+                    case "moderately":
+                        finalBmr = finalBmi * 1.55;
+                        break;
+                    case "very":
+                        finalBmr = finalBmi * 1.75;
+                        break;
+                    case "extremely":
+                        finalBmr = finalBmi * 2.05;
+                        break;
+                }
+                answer.innerHTML = finalBmr;
+                var finalBmrc = ((finalBmr * 0.55)*4).toFixed(0);
+                var finalBmrp = ((finalBmr * 0.25)*4).toFixed(0);
+                var finalBmrf = ((finalBmr * 0.20) * 9).toFixed(0);
+                var mntotal = (((finalBmr * 0.55) * 4) + ((finalBmr * 0.25) * 4) + ((finalBmr * 0.20) * 9)).toFixed(0);
+                document.getElementById('mntots').innerHTML = mntotal + " Grams of Macronutrients Daily";
+                document.getElementById('carboz').innerHTML = finalBmrc+" Grams of Carbohydrates    | 45 to 65 percent";
+                document.getElementById('proteinz').innerHTML = finalBmrp +" Grams of Proteins    | 10 to 35 percent";
+                document.getElementById('fatz').innerHTML = finalBmrf +" Grams   of Fats   | 20 to 35 percent";             }
+            else {
+                alert("Please Fill in everything correctly")
+            }
+        }
+        function calculateBmi() {
+            var weight = document.bmiForm.weight.value
+            var height = document.bmiForm.height.value
+            if (weight > 0 && height > 0) {
+                var finalBmi = weight / (height / 100 * height / 100)
+                document.bmiForm.bmi.value = finalBmi
+                if (finalBmi < 18.5) {
+                    document.bmiForm.meaning.value = "You are too thin."
+                }
+                if (finalBmi > 18.5 && finalBmi < 25) {
+                    document.bmiForm.meaning.value = "You are healthy."
+                }
+                if (finalBmi > 25) {
+                    document.bmiForm.meaning.value = "You are overweight."
+                }
+            }
+            else {
+                alert("Please Fill in everything correctly")
+            }
+        }
+        function calculateVo2() {
+            var gender = document.vo2max.gendervo2.value
+            var age = document.vo2max.agevo2.value
+            var max;
+            var burn;
+            if (gender == "m") {
+                if (age < 13) {
+                    document.vo2max.meaning.value = "You are probably too young for this."
+                } else if (age < 90) {
+                    max = 220 - age;
+                    burn = (max * 0.675).toFixed(0);
+                    document.vo2max.vo2.value = "Roughly "+max+"bpm"
+                    document.vo2max.meaning.value = "Train at "+burn+"bpm for weight loss."
+
+                } else if (age > 90) {
+                    document.vo2max.meaning.value = "I wouldn't like to say...."
+                } else {
+                    document.vo2max.meaning.value = "Please enter a valid age."
+                }
+            } else {
+                if (age < 13) {
+                    document.vo2max.meaning.value = "You are probably too young for this."
+                } else if (age < 90) {
+                    max = 208 - age;
+                    burn = (max * 0.675).toFixed(0);
+                    document.vo2max.vo2.value = "Roughly " + max + "bpm"
+                    document.vo2max.meaning.value = "Train at " + burn + "bpm for weight loss."
+
+                } else if (age > 90) {
+                    document.vo2max.meaning.value = "I wouldn't like to say...."
+                } else {
+                    document.vo2max.meaning.value = "Please enter a valid age."
+                }
+            }
+        }
+        (function () {
+            const form = document.getElementById('calc-form');
+            const results = document.getElementById('resultscalories');
+            const errors = document.getElementById('form-error');
+
+           
+            function errorMessage(msg) {
+                errors.innerHTML = msg;
+                errors.style.display = '';
+                return false;
+            }
+
+           
+            function showResults(calories) {
+                results.innerHTML = `<p>Your basal metabolic rate (BMR) is: <strong>${(calories).toFixed(2)} </strong> calories a day.</p><a href="#" id="rs">revise</a>`;
+                results.style.display = ''
+                form.style.display = 'none'
+                errors.style.display = 'none'
+            }
+            
+            function resetForm(e) {
+                if (e.target.id = 'rs') {
+                    e.preventDefault();
+                    results.style.display = 'none';
+                    form.style.display = '';
+                    form.reset()
+                }
+            }
+            
+            function submitHandler(e) {
+                e.preventDefault();
+
+                // Age
+                let age = parseFloat(form.age.value);
+                //let unit = form.distance_unit.value;
+                if (isNaN(age) || age < 0) {
+                    return errorMessage('Please enter a valid age');
+                }
+
+                // Height
+                let heightCM = parseFloat(form.height_cm.value);
+                if (isNaN(heightCM) || heightCM < 0) {
+
+                    let heightFeet = parseFloat(form.height_ft.value);
+                    if (isNaN(heightFeet) || heightFeet < 0) {
+                        return errorMessage('Please enter a valid Height in feet or centimeters');
+                    }
+                    let heightInches = parseFloat(form.height_in.value);
+                    if (isNaN(heightInches) || heightInches < 0) {
+                        heightInches = 0;
+                    }
+                    heightCM = (2.54 * heightInches) + (30.4 * heightFeet)
+
+                }
+
+                let weight = parseFloat(form.weight.value);
+                if (isNaN(weight) || weight < 0) {
+                    return errorMessage('Please enter a valid weight');
+                }
+
+                if (form.weight_unit.value == 'lb') {
+                    weight = 0.453592 * weight;
+                }
+
+                let calories = 0;
+                if (form.gender.value == 'Female') {
+                    //females =  655.09 + 9.56 x (Weight in kg) + 1.84 x (Height in cm) - 4.67 x age
+                    calories = 655.09 + (9.56 * weight) + (1.84 * heightCM) - (4.67 * age);
+                } else {
+                    calories = 66.47 + (13.75 * weight) + (5 * heightCM) - (6.75 * age);
+                }
+
+                // Display results
+                showResults(calories);
+            }
+
+            // Add Event Listeners
+            form.addEventListener('submit', submitHandler);
+            results.addEventListener('click', resetForm, true);
+
+        })();
+        (function () {
+            function MacrosToCalories(proteins, carbs, fats) {
+                proteins = parseFloat(proteins);
+                carbs = parseFloat(carbs);
+                fats = parseFloat(fats);
+                return ((proteins * 4) + (carbs * 4) + (fats * 9));
+            }
+
+            var calculateMacros = document.getElementById("calculateMacros");
+            if (calculateMacros) {
+                calculateMacros.onsubmit = function () {
+                    this.result.value = MacrosToCalories(this.proteins.value, this.carbs.value, this.fats.value);
+                    return false;
+                };
+            }
+        }());
+    </script>
+<script>
+
+</script>
+    <script>
+    var $ = function (id) { return document.getElementById(id); };
+        function msystem() { if ($('msf').value == 'metric') { $('thf').innerHTML = ' (Cms)'; $('tneck').innerHTML = ' (Cms)'; $('twaist').innerHTML = ' (Cms)'; $('thips').innerHTML = ' (Cms)'; } else { $('thf').innerHTML = ' (inches)'; $('tneck').innerHTML = ' (inches)'; $('twaist').innerHTML = ' (inches)'; $('thips').innerHTML = ' (inches)'; } }
+        function bfat() {
+            var ms = $('msf').value; var sex = $('sf').value; var height = $('hf').value; var neck = $('neck').value; var waist = $('waist').value; var hips = $('hips').value; var ibf; var bfc; if (height == null || height == 0 || neck == null || neck == 0 || waist == null || waist == 0) { $('bf').value = "Pl. enter data."; } else { $('bf').value = ""; }
+            if (ms == 'metric' && sex == 'm' && height > 0 && waist > 0 && neck > 0) { ibf = Math.round((86.010 * (Math.log(waist * 1 - neck * 1) / Math.log(10)) - 70.041 * (Math.log(height) / Math.log(10)) + 30.30 * 1) * 100) / 100; if (ibf <= 5) { bfc = 'Essential'; } else if (ibf > 5 && ibf <= 17) { bfc = 'Fit'; } else if (ibf > 17 && ibf <= 25) { bfc = 'Acceptable'; } else if (ibf > 25) { bfc = 'Obese'; } $('bf').value = ibf + " % "; $('nbf').value = bfc; }
+            else if (ms == 'us' && sex == 'm' && height > 0 && waist > 0 && neck > 0) { ibf = Math.round((86.010 * (Math.log(waist * 1 - neck * 1) / Math.log(10)) - 70.041 * (Math.log(height) / Math.log(10)) + 36.76 * 1) * 100) / 100; if (ibf <= 5) { bfc = 'Essential'; } else if (ibf > 5 && ibf <= 17) { bfc = 'Fit'; } else if (ibf > 17 && ibf <= 25) { bfc = 'Acceptable'; } else if (ibf > 25) { bfc = 'Obese'; } $('bf').value = ibf + " % "; $('nbf').value = bfc; }
+            else if (ms == 'metric' && sex == 'f' && height > 0 && waist > 0 && neck > 0) {
+                ibf = Math.round((163.205 * (Math.log(waist * 1 + hips * 1 - neck * 1) / Math.log(10)) - 97.684 * (Math.log(height) / Math.log(10)) - 104.912 * 1) * 100) / 100;
+                if (ibf <= 15) { bfc = 'Essential'; } else if (ibf > 15 && ibf <= 24) { bfc = 'Fit'; } else if (ibf > 24 && ibf <= 31) { bfc = 'Acceptable'; } else if (ibf > 31) { bfc = 'Obese'; } $('bf').value = ibf + " % "; $('nbf').value = bfc;
+            } else if (ms == 'us' && sex == 'f' && height > 0 && waist > 0 && neck > 0) {
+                ibf = Math.round((163.205 * (Math.log(waist * 1 + hips * 1 - neck * 1) / Math.log(10)) - 97.684 * (Math.log(height) / Math.log(10)) - 78.387 * 1) * 100) / 100;
+                if (ibf <= 15) { bfc = 'Essential'; } else if (ibf > 15 && ibf <= 24) { bfc = 'Fit'; } else if (ibf > 24 && ibf <= 31) { bfc = 'Acceptable'; } else if (ibf > 31) { bfc = 'Obese'; }
+                $('bf').value = ibf + " % "; $('nbf').value = bfc;
+            }
+        }</script>
+
+    <script>
+
+
+
+        jQuery(function ($) {
+
+            $('#bookmark-this').click(function (e) {
+                var bookmarkURL = window.location.href;
+                var bookmarkTitle = document.title;
+
+                if ('addToHomescreen' in window && addToHomescreen.isCompatible) {
+                    // Mobile browsers
+                    addToHomescreen({ autostart: false, startDelay: 0 }).show(true);
+                } else if (window.sidebar && window.sidebar.addPanel) {
+                    // Firefox <=22
+                    window.sidebar.addPanel(bookmarkTitle, bookmarkURL, '');
+                } else if ((window.sidebar && /Firefox/i.test(navigator.userAgent)) || (window.opera && window.print)) {
+                    // Firefox 23+ and Opera <=14
+                    $(this).attr({
+                        href: bookmarkURL,
+                        title: bookmarkTitle,
+                        rel: 'sidebar'
+                    }).off(e);
+                    return true;
+                } else if (window.external && ('AddFavorite' in window.external)) {
+                    // IE Favorites
+                    window.external.AddFavorite(bookmarkURL, bookmarkTitle);
+                } else {
+                    // Other browsers (mainly WebKit & Blink - Safari, Chrome, Opera 15+)
+                    alert('Press ' + (/Mac/i.test(navigator.platform) ? 'Cmd' : 'Ctrl') + '+D to bookmark this page.');
+                }
+
+                return false;
+            });
+
+        });
+        document.getElementById("para1").innerHTML = formatAMPM();
+        function formatAMPM() {
+            var d = new Date(),
+                minutes = d.getMinutes().toString().length == 1 ? '0' + d.getMinutes() : d.getMinutes(),
+                hours = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours(),
+                ampm = d.getHours() >= 12 ? 'pm' : 'am',
+                months = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                days = ['Sunday', 'Monday', 'Tueday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            return 'Today is ' + days[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + d.getDate() + ' ' + d.getFullYear() + ', ' + hours + ':' + minutes + ampm;
+        }
+
+
+    </script>
+    <script src="~/Scripts/JavaScript.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+﻿@model IEnumerable<Blog.Models.Articles>
+@{
+    ViewBag.Title = "Related";
+    ViewBag.Description = "THE resource for light-weight morning-coffee news analysis, product reviews and 'how to' guides for a range of topic areas.";
+    
+}
+<p>@ViewBag.data</p>
+<div class="container-fluid">
+    <div class="col-md-9">
+        <div class="jumbotron custom-jumbotron-dark custom-jumbotron-header"><h2>Related Articles</h2></div>
+        <div class="row" style="margin:10px 0 10px 0;">
+            @foreach (var tagitem in ViewBag.TagList)
+            {
+                if (tagitem.Tag_Id == ViewBag.Tago)
+                {
+                    <div class="articleTag">@tagitem.Name</div>
+                }
+            }
+        </div>
+        <div class="custom-panel" style="display:none;">
+            <h1> How To Format and Submit Your Work To Regular Reads.</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="author-details">
+                        <div class="profile-picture"><img src="~/Content/Images/profile.jpg" style="width:100%;" /></div>
+                        <h4>Thomas Fahey</h4>
+                        <h5>@DateTime.Now;</h5>
+                        <h5>Write for Us</h5>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="article-summary">
+                        <p>Do you want to write for Regular Reads? Here we will discuss the process involved in submitting your work.</p>
+                        <p>
+                            Writing is very difficult but many of us master the challenge and we are left with a new problem. Getting our work online.
+                            This is often the most difficult part to initiate on the road to becoming a successful writer. Regular Reads has sorted this stage out, so you don't have to!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="text-align:center;">
+                <img src="~/Content/Images/articlesub.jpg" style="width:95%;margin:0 auto;" />
+            </div>
+            <div class="container-fluid">
+                <br />
+                <div class="articleText">
+                    <h2 style="text-align:center;">INTRODUCTION</h2>
+                    <p>
+                        Before we begin, let me explain how Regular Reads publishing works. We provide our writers with a word document template containing an easy to understand outline of the work they should present. The writers reference any files or images within their text and collate all the files into an article folder. <br />
+                        Then they send this folder to our moderators who will approve the work or send it back with feedback for improvements. Upon approval, the work is search engine optimised and published on the Regular Reads website.<br /><br />
+                        The outline for an article is provided in the word document we send you but it is also available below:<br />
+                    </p>
+
+                    <h2 style="text-align:center;">ARTICLE OUTLINE</h2>
+
+                    <h4 style="margin-top:30px;">AUTHOR NAME:</h4>
+                    <p>
+                        You can use your real name or a fake name as long as you are consistent.
+                    </p>
+                    <h4 style="margin-top:30px;">AUTHOR PROFILE PICTURE:</h4>
+
+                    <p>This will not be displayed very large (100px by 100px). This is simply a tiny thumbnail picture to display by your chosen name. If you have used a fake name it is strongly recommended that you use either a free-to-use photo of somebody else, cartoon or drawing. Choose something, name it ‘YourName.jpg’ and save it in your project folder.</p>
+                    <h4 style="margin-top:30px;">
+                        CATEGORY TITLE:
+                    </h4>
+                    <p>A general category or area that broadly fits your choice of topic.</p>
+                    <h4 style="margin-top:30px;">
+                        CATEGORY SNIPPET: [20 WORDS]
+                    </h4>
+                    <p>Briefly describe the category you have chosen if it is unique to the website (which at this point it will be).</p>
+                    <h4 style="margin-top:30px;">
+                        CATEGORY DESCRIPTION: [50 WORDS]
+                    </h4>
+                    <p>Briefly introduce the category you have chosen if it is unique to the website (which at this point it will be).</p>
+                    <h4 style="margin-top:30px;">
+                        SUBCATEGORY TITLE:
+                    </h4>
+                    <p>A more specific category or area that tightly fits your choice of topic.</p>
+                    <h4 style="margin-top:30px;">
+                        ARTICLE TITLE:
+                    </h4>
+                    <p>Try to think of something catchy but don’t overdo it. If your article or blog is described best with a less catchy title then don’t hesitate, USE IT!</p>
+                    <h4 style="margin-top:30px;">
+                        ARTICLE SNIPPET: [1 SENTENCE – 20 WORDS]
+                    </h4>
+                    <p>This is the first text that will be visible next to your title and image. Like the first line of a book, it should be composed considerately. Try to say something interesting that plants an unanswered question.</p>
+                    <h4 style="margin-top:30px;">
+                        ARTICLE LEAD: [1 PARAGRAPH – 50 WORDS]
+                    </h4>
+                    <p>This is the introductory paragraph – the primary paragraph that sets the tone for your article. Splitting it into three statements can be useful.</p>
+                    <ol>
+                        <li>
+                            <p style="margin-left:20px;">A funny, shocking, interesting, or ironic statement. </p>
+                        </li>
+                        <li>
+                            <p style="margin-left:20px;">Introduce a problem, conflict, disturbing fact, exciting news, or an inspirational idea. </p>
+                        </li>
+                        <li>
+                            <p style="margin-left:20px;">Pose a question, or better yet get the reader to wonder, with a finishing sentence that provides zero closure! </p>
+                        </li>
+                    </ol>
+                    <img src="/Content/Images/article2.jpg" style="width:100%;" />
+                    <h4 style="margin-top:30px;">
+                        CONTENT: [800 WORDS < 2500 WORDS]
+                    </h4>
+                    <p>This is where you write the main bulk of your content. Be aware that many people will be reading on mobile devices, so break your text up into lightweight paragraphs. Try to organise the writing for simpler navigation by using:</p>
+                    <ul>
+                        <li>
+                            <p style="margin-left:20px;">Headings </p>
+                        </li>
+                        <li>
+                            <p style="margin-left:20px;">Subheadings </p>
+                        </li>
+                        <li>
+                            <p style="margin-left:20px;">Numbered Lists </p>
+                        </li>
+                        <li>
+                            <p style="margin-left:20px;">Bullet Points </p>
+                        </li>
+                        <li>
+                            <p style="margin-left:20px;">Images (Art work, Photographs you have taken, free images from websites such as <a href="https://unsplash.com/">Unsplash.com</a> or <a href="https://www.pexels.com/royalty-free-images/">Pexels!</a>
+                        </li>
+                        <li>
+                            <p style="margin-left:20px;">External Links. Try to use links where relevant. If you use specific information or quotes from anywhere, provide the link. If you are referencing a particular product or service, link to the product or the company website. </p>
+                        </li>
+                        <li>
+                            <p style="margin-left:20px;">Internal Links. When the website is no longer in its infancy, try to link to your older articles where relevant and more importantly, try to link to other writers’ material within the website. </p>
+                        </li>
+                        <li><p style="margin-left:20px;">Link Format: [LINK: www.somewebsite.com/somedirectory] </p>
+                    </ul>
+                    <p>At the end, try to spare a few words to thank the reader and maybe write a sentence about who you are and what you do.</p>
+                    <h4 style="color:darkblue;">
+                        TAGS:
+                    </h4>
+                    <p>Provide 4 or 5 Tags that are relevant to the article.</p>
+                    <ul>
+                        <li><p style="margin-left:20px;">2 or 3 words for each tag are best. Some can have more, but try not to have less. </p></li>
+                        <li><p style="margin-left:20px;">If your article is a “How to...” post, then ‘How to’ is not an acceptable tag. How to ‘what?’. Try to be specific. </p></li>
+                    </ul>
+                    <img src="/Content/Images/article3.jpg" style="width:100%;" />
+                    <h4 style="margin-top:30px;">
+                        IMAGES:
+                    </h4>
+                    <p>Please rename any images you use so that they are meaningful and legible.</p>
+                    <span style="text-align: center; color:black;font-size:150%;"><h6>‘IMG01957385XhBf590hGJGHuJKHo.jpg’ is simply not acceptable!</h6></span>
+                    <p>
+                        Simply write the name of the picture (e.g. ‘Picture.jpg’) here and send me the folder with this document and all your images using <a href="https://wetransfer.com/">We Transfer!</a>
+                        <h4 style="margin-top:30px;">
+                            BANNER IMAGE:
+                        </h4>
+                    <p>It is compulsory to include a banner image with your blog post. Try to make sure it is:</p>
+                    <ul>
+                        <li><p style="margin-left:20px;">Good Quality. It doesn’t need to be super high resolution. Make sure it is not blurry to look at. </p></li>
+                        <li><p style="margin-left:20px;">Legal to use. Either you own it, or you sourced it from a free-to-use images resource. </p></li>
+                        <li><p style="margin-left:20px;">Also, provide some alternative text. A very short sentence that describes the picture. </p></li>
+                    </ul>
+                    <p>You could also design your banner with text-overlay, if you want to stand out – Or even do some artwork.</p>
+                    <h4 style="color:darkblue;">
+                        OTHER IMAGES:
+                    </h4>
+                    <p>
+                        You may wish to include images in your main ‘CONTENT’ text. This is very wise. Simply write:
+                    </p>
+                    <span style="text-align: center; color:black;font-size:150%;"><h6>[insert: ImageName.jpg]</h6></span>
+                    <p>
+                        Do this wherever you wish any images to be displayed. This is completely up to you.
+
+                    </p>
+                    <h2 style="text-align:center;color:black;">WHAT ARE YOU WAITING FOR?</h2><br />
+                    <p>
+                        Please use a project folder for all your images and files. Send the folder to ‘thomasfahey@mail.com’ via <a href="https://wetransfer.com/">We Transfer!</a>
+                    </p>
+                    <p>
+                        Try to be consistent. Once a month, twice a month, once a week, twice a week… You haven’t signed up to anything so its entirely up to you whether you continue or not. Be your own motivation. Any of your work published on Regular Reads will be copyrighted in your name and credit will be incredibly clearly made to you.
+                    </p>
+                    <h6 style="text-align:right;">Copyright 2020 By Thomas Fahey</h6><br />
+                </div>
+            </div>
+        </div>
+        <br />
+        @{ var i = 0;
+            foreach (var item in Model)
+            {
+                i++;
+                if (i > 20)
+                {
+                    break;
+                }
+            }
+            var x = i;
+
+        }
+        @foreach (var item in Model.Reverse())
+        {
+            if (item.Art_Id == ViewBag.Tags.Art_Id)
+            {
+
+            <article class="wow fadeInUp">
+                <div class="custom-panel" style="width:96%;margin:0 auto; margin-top:-10px;">
+                    <div class="row">
+                        <div class="col-md-5"> <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Image)" style="width:100%;" /></div>
+                        <div class="col-md-7">
+                            <div class="arrow-right"></div>
+                            <a style="color:purple;" href="\Home/Category_List/@item.Categories.Cat_Id">@item.Categories.Title</a> <div class="arrow-right">
+                            </div><a style="color:purple;" href="\Home/Subcategory_List/@item.Subcategories.Cat_Id">@item.Subcategories.Title</a>
+                            <a href="\Home/Details/@Html.DisplayFor(modelItem => item.Art_Id)"><h4 class="title-home"> @Html.DisplayFor(modelItem => item.Title)</h4></a>
+                            <p>
+                                @Html.DisplayFor(modelItem => item.Snippet)
+                            </p>
+                            @Html.ActionLink("Continue Reading", "Details", new { id = item.Art_Id }, new { @class = "btn btn-default" })
+                        </div>
+                    </div>
+                </div><br />
+            </article>
+
+                x--;
+                if (x == 0)
+                {
+                    break;
+                }
+            }
+        }
+
+        <article>
+            <h3>YOU MIGHT ALSO LIKE:</h3>
+            <div style="margin:30px;">
+
+
+
+                @{ var io = 0;}
+                @foreach (var t in ViewBag.Articlesdata)
+                {
+                    if (io > 20)
+                    {
+
+                        <a href="\Home/Details/@t.Art_Id"><h4>@t.Title</h4></a>
+                        io++;
+                    }
+
+                    if (io == 35)
+                    {
+                        break;
+                    }
+                }
+
+            </div>
+        </article>
+        <article>
+            <div class="newsletter-signup mobilehide">
+                <h4 style="font-weight:600;line-height:25px;">FOR MORE CONTENT LIKE THIS EVERY WEEK SIGN UP BELOW FOR THE WEEKLY REGULAR READS NEWSLETTER!</h4>
+                <form action="https://formspree.io/xeqzdjkg"
+                      method="POST">
+                    <label style="width:100%;">
+                        <input style="padding:5px; font-size:120%; width:100%; min-width:100%; text-align:center; max-width:700px;" type="text" name="_replyto" placeholder="Enter Your Email...">
+                    </label>
+                    <br />
+                    <button class="btn btn-success" style="width:100%;" type="submit">SIGN UP</button>
+                    <h6>By subscribing, you consent to receive emails from Regular Reads. We respect your privacy and take protecting it seriously. You can easily unsubscribe at any time.</h6>
+                </form>
+            </div>
+        </article>
+    </div>
+
+    <div class="col-md-3">
+        <div class="row">
+            <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=2&p=26&l=ur1&category=gift_certificates&banner=0ZS2J1W4F5KNEBHAKWR2&f=ifr&linkID=273f1dacee730a07e11b7a94df1979e7&t=regularreads-21&tracking_id=regularreads-21" style="width:100%;margin:0 auto;margin-top:10px;margin-bottom:10px;" height="60" scrolling="no" border="0" marginwidth="0" frameborder="0"></iframe>
+
+            <article>
+                <div class="newsletter-signup">
+                    <h4 style="font-weight:600;line-height:25px;">FOR MORE CONTENT LIKE THIS EVERY WEEK SIGN UP BELOW FOR THE WEEKLY REGULAR READS NEWSLETTER!</h4>
+                    <form action="https://formspree.io/xeqzdjkg"
+                          method="POST">
+                        <label>
+                            <input style="padding:5px; font-size:120%;" type="text" name="_replyto" placeholder="Enter Your Email...">
+                        </label>
+                        <button class="btn btn-success" type="submit">SIGN UP</button>
+
+                        <h6>By subscribing, you consent to receive emails from Regular Reads. We respect your privacy and take protecting it seriously. You can easily unsubscribe at any time.</h6>
+
+                    </form>
+                    <br />
+                </div>
+            </article>
+            <article>
+                <div class="categories-panel">
+                    <h3>TOPICS</h3>
+                    @foreach (var item in ViewBag.Categories)
+                    {
+                        <a href="\Home/Category_List/@item.Cat_Id"><div class="categories-panel-option">@item.Title</div></a>
+                    }
+
+                </div><br />
+            </article>
+        </div>
+
+        <div class="row" style="text-align:center;">
+            <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=2&p=22&l=ur1&category=gift_certificates&banner=0AJXBAENMFFZMSG57YG2&f=ifr&linkID=8a53cba020e2f2702b3d940b22e38bad&t=regularreads-21&tracking_id=regularreads-21" scrolling="no" border="0" marginwidth="0" frameborder="0" style="width:100%; height:250px;margin:0 auto;text-align:center;"></iframe>
+        </div>
+        <div class="row">
+            <article>
+                @*<div class="categories-panel" style="border-bottom:none;">
+                    <h3>HOW TO...</h3>
+                    @{ var y = 0;}
+                    @foreach (var itemo in ViewBag.Tagmap)
+                    {
+                        if (itemo.Name == "guides")
+                        {
+                            foreach (var item in ViewBag.Categories)
+                            {
+                                foreach (var article in Model.Reverse())
+                                {
+                                    if (article.Cat_Id == item.Cat_Id)
+                                    {
+                                        <div class="custom-panel" style="padding:0 4px 4px 4px;margin-top:5px;">
+                                            <div class="sidebar-thumbnail" style="margin-top:4px;">
+
+
+                                                <div class="sidebar-thumbnail-img">
+                                                    <a><img src="~/Content/Images/@article.Image" style="width:100%;" /></a>
+                                                </div>
+
+                                                <div class="sidebar-thumbnail-text">
+                                                    <a href="Home/Details/@article.Art_Id">@article.Title</a>
+                                                    <h5>@article.Date</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        y++;
+                                    }
+                                    if (y == 15)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    <br />
+                </div><br />*@
+            </article>
+        </div>
+
+        <div class="row" style="text-align:center;">
+            <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=2&p=22&l=ur1&category=gift_certificates&banner=0AJXBAENMFFZMSG57YG2&f=ifr&linkID=8a53cba020e2f2702b3d940b22e38bad&t=regularreads-21&tracking_id=regularreads-21" scrolling="no" border="0" marginwidth="0" frameborder="0" style="width:100%; height:250px;margin:0 auto;text-align:center;"></iframe>
+        </div>
+    </div>
+</div>

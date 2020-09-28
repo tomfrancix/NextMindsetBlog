@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Blog.Models.Shop>
+
+@{
+    ViewBag.Title = "Shop";
+    ViewBag.Robot = "noindex, nofollow";
+    ViewBag.Google = "noindex, nofollow";
+    ViewBag.Bing = "noindex, nofollow";
+    ViewBag.Url = "";
+}
+
+<div class="jumbotron custom-jumbotron-dark">
+    <img src="~/Content/Images/nextmindsetbannerdark.jpg" />
+
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <article>
+            <div style="background-color:rgba(240,240,250,1);padding:20px;border:1px solid rgba(100,100,100,0.6);border-radius:15px;">
+                <p class="lead" style="font-size:14pt; font-weight:bold;">WELCOME TO THE REGULAR READS SHOP! <br /></p>
+                <h5 style="font-size:14pt;">We always have a small collection of REGULAR READS mechandise available right here.</h5>
+                <h5 style="font-size:14pt;">If you wish to support REGULAR READS so we can continue delivering quality reading material PLEASE consider making a purchase!</h5>
+            </div>
+        </article>
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="panel" style="border:1px solid rgba(0,0,0,0.4);padding:10px;">
+                    <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                    <div style="width:100%;height:230px;overflow:hidden;"><img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Image2)" style="width:100%;margin:0 auto;" /></div>
+
+                    <div style="width:100%;text-align:center;"><h1 style="color:hotpink">£@Html.DisplayFor(modelItem => item.Price)</h1></div>
+                    @Html.ActionLink("Details", "Details", new { id = item.Shop_Id }, new { @class = "btn btn-info buy" })
+                    <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                </div>
+            </div>
+            @*<tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Link)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Information)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image2)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Shop_Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Shop_Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Shop_Id })
+                </td>
+            </tr>*@
+        }
+    </div>
+</div>
+

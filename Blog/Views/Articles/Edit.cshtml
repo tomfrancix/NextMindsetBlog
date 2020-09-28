@@ -1,0 +1,197 @@
+﻿@model Blog.Models.Articles
+
+@{
+    ViewBag.Title = "Edit";
+    ViewBag.Robot = "noindex, nofollow";
+    ViewBag.Google = "noindex, nofollow";
+    ViewBag.Bing = "noindex, nofollow";
+    ViewBag.Url = "";
+}
+<ul class="nav nav-tabs">
+    <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+    <li>@Html.ActionLink("Subcategories", "Index", "Subcategories")</li>
+    <li class="active">@Html.ActionLink("Articles", "Index", "Articles")</li>
+    <li>@Html.ActionLink("Images", "Index", "Images")</li>
+    <li>@Html.ActionLink("Imagemap", "Index", "Imagemaps")</li>
+    <li>@Html.ActionLink("Tags", "Index", "Tags")</li>
+    <li>@Html.ActionLink("Tagmap", "Index", "Tagmaps")</li>
+    <li>@Html.ActionLink("Comments", "Index", "Comments")</li>
+    <li>@Html.ActionLink("Replies", "Index", "Replies")</li>
+    <li>@Html.ActionLink("Shop", "Index", "Shops")</li>
+</ul><br /><br />
+<h2>Edit</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="background-color:white;">
+        <h4>Articles</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Art_Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cat_Id, "Cat_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Cat_Id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Cat_Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sub_Id, "Sub_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Sub_Id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sub_Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="imageFile" />
+                <img src="~/Content/Images/@Html.DisplayFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })" width="200" />
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Author_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Author_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Author_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Author_Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="imageFile2" />
+                <img src="~/Content/Images/@Html.DisplayFor(model => model.Author_Image, new { htmlAttributes = new { @class = "form-control" } })" width="200" />
+                @Html.ValidationMessageFor(model => model.Author_Image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lead, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Lead, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Lead, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Snippet, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Snippet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Snippet, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <div id="ContentQuill">
+                </div>
+                <br />
+                <details style="display:block;height:500px;">
+                    <summary>View Current Version</summary>
+                    <div id="contentstring" style="width:60%;">@Html.Raw(ViewBag.ContentData)</div>
+            
+            </details>
+            <br />
+
+
+        </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button class="btn btn-info" onclick="Confirm();">Update Content</button>
+                <br /><br />
+                @Html.TextAreaFor(model => model.Content, new { htmlAttributes = new { @class = "form-control", cols = "150", rows = "10" } })
+                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script>
+    
+    var quill = new Quill('#ContentQuill', {
+        modules: {
+            toolbar: [
+                [{ 'font': [] }],
+                [{ 'size': ['small', false, 'large', 'huge'] }],
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                ['bold', 'italic', 'underline', 'strike', 'link'],
+                [{ 'color': [] }, { 'background': [] }],         // toggled buttons
+                ['blockquote', 'code-block'],
+                [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+                [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+                [{ 'direction': 'rtl' }],                         // text direction
+
+                // custom dropdown
+                // dropdown with defaults from theme
+
+                [{ 'align': [] }],
+                ['link', 'image', 'video'],
+                ['clean']
+            ],
+
+
+        },
+        placeholder: 'Compose an epic...',
+        theme: 'snow'  // or 'bubble'
+    });
+    //$("#identifier").on("submit", function () {
+    //    $("#Content").val($("#ContentQuill").html());
+    //})
+    function Confirm() {
+        var quillbox = document.getElementById('ContentQuill').getElementsByClassName("ql-editor")[0];
+        var contentbox = document.getElementById('Content');
+        var quillvalue = quillbox.innerHTML;
+        contentbox.value = quillvalue;
+    }
+    var quillbox = document.getElementById('ContentQuill').getElementsByClassName("ql-editor")[0];
+    var tempcont = document.getElementById('contentstring');
+    var contentbox = document.getElementById('Content');
+    quillbox.innerHTML = tempcont.innerHTML;
+    //quillbox = quillbox.innerHTML;
+    //return quillbox.textContent || quillbox.innerText || "";
+   
+</script>

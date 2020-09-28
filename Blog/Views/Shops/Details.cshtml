@@ -1,0 +1,97 @@
+﻿@model Blog.Models.Shop
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.Robot = "noindex, nofollow";
+    ViewBag.Google = "noindex, nofollow";
+    ViewBag.Bing = "noindex, nofollow";
+    ViewBag.Url = "";
+}
+<ul class="nav nav-tabs">
+    <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+    <li>@Html.ActionLink("Subcategories", "Index", "Subcategories")</li>
+    <li>@Html.ActionLink("Articles", "Index", "Articles")</li>
+    <li>@Html.ActionLink("Images", "Index", "Images")</li>
+    <li>@Html.ActionLink("Imagemap", "Index", "Imagemaps")</li>
+    <li>@Html.ActionLink("Tags", "Index", "Tags")</li>
+    <li>@Html.ActionLink("Tagmap", "Index", "Tagmaps")</li>
+    <li>@Html.ActionLink("Comments", "Index", "Comments")</li>
+    <li>@Html.ActionLink("Replies", "Index", "Replies")</li>
+    <li class="active">@Html.ActionLink("Shop", "Index", "Shops")</li>
+</ul><br /><br />
+<h2>Details</h2>
+
+<div>
+    <h4>Shop</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Information)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Information)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Shop_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

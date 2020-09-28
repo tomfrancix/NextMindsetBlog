@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    ViewBag.Description = "THE resource for light-weight morning-coffee news analysis, product reviews and 'how to' guides for a range of topic areas.";
+
+    ViewBag.Robot = "index, follow";
+    ViewBag.Google = "index, follow";
+    ViewBag.Bing = "index, follow";
+    ViewBag.Url = "Contact";
+}
+<div class="jumbotron custom-jumbotron-dark jumbotronimageback">
+    <div id="para1" class="togglepc"></div>
+    <img class="togglephone" src="~/Content/Images/nextmindsetbannerdark.jpg" />
+
+</div>
+<div class="jumbotron custom-jumbotron-dark custom-jumbotron-header"><h2>CONTACT US</h2></div>
+
+<div class="jumbotron" style="text-align:center;">
+    <h4>Address:</h4>
+    <address>
+        <br />
+        Ilford, Essex, IG39HG<br />
+
+    </address>
+        <h4>Phone:</h4>
+        +44 (0) 7739-583-148<br /><br />
+    <h4>Email (Support/Marketing):</h4>
+    <address>
+        <a href="mailto:admin@regularreads.com">admin@nextmindset.co.uk</a><br />
+    </address>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="contactform" style="margin-left:-10px;">
+            <form action="https://formspree.io/mvoqlyrj" method="POST">
+                <div class="formgroup">
+                    <p>YOUR NAME:</p>
+                    <input type="text" name="name" placeholder="Enter Your Name..." />
+                </div>
+                <div class="formgroup">
+                    <p>YOUR EMAIL:</p>
+                    <input type="email" name="name" placeholder="Enter Your Email..." />
+                </div>
+                <div class="formgroup">
+                    <p>YOUR MESSAGE:</p>
+                    <textarea type="text" name="name" placeholder="Compose Your Message..."></textarea>
+                </div>
+                <div class="formgroup">
+                    <input class="btn btn-info" type="submit" name="send" value="Send Message" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

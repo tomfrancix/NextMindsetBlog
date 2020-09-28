@@ -1,0 +1,48 @@
+﻿@model Blog.Models.Comments
+
+
+@using (Html.BeginForm("AddComment", "Blog", FormMethod.Post))
+{
+    
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <h3>LEAVE A REPLY:</h3>
+    <br />
+    <input class="form-control text-box single-line" data-val="true" data-val-length="The field First_Name must be a string with a maximum length of 160."
+           data-val-length-max="160" data-val-required="Your First Name is required" id="First_Name" name="First_Name" type="text" placeholder="Enter Your First Name..." value="">
+
+    <br />@Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })<br />
+
+    <input class="form-control text-box single-line" data-val="true" data-val-length="The field Last_Name must be a string with a maximum length of 160."
+           data-val-length-max="160" data-val-required="Your Last Name is required" id="Last_Name" name="Last_Name" type="text" placeholder="Enter Your Last Name..." value="">
+
+    <br />@Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })<br />
+
+    <input class="form-control text-box single-line" data-val="true" data-val-length="The field Email must be a string with a maximum length of 160."
+           data-val-length-max="160" data-val-required="Your Email is required" id="Email" name="Email" type="text" placeholder="Enter Your Email" value>
+
+    <br />@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })<br />
+
+    <textarea class="form-control text-box single-line" data-val="true" data-val-length="The field Content must be a string with a maximum length of 1000."
+              data-val-length-max="1000" data-val-required="Did you forget to write a comment? [Max:1000 Characters]" id="Content" name="Content" type="text" placeholder="Comment*" cols="70" rows="10" value></textarea>
+
+    <br />@Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })<br />
+
+    <input data-val="true" data-val-number="The field Art_Id must be a number." id="Art_Id" name="Art_Id" type="hidden" value="@ViewBag.data" />
+
+    <input class="form-control text-box single-line" data-val="true" data-val-date="The field Date must be a date."
+           data-val-required="The Date field is required." id="Date" name="Date" type="hidden" value="@DateTime.Now">
+
+
+    
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" style="float:right;"  value="Post Comment" class="btn btn-info" />
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

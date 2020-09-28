@@ -1,0 +1,204 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    ViewBag.Robot = "index, follow";
+    ViewBag.Google = "index, follow";
+    ViewBag.Bing = "index, follow";
+    ViewBag.Url = "Search";
+}
+<div class="jumbotron custom-jumbotron-dark jumbotronimageback">
+    <div id="para1" class="togglepc"></div>
+    <img class="togglephone" src="~/Content/Images/nextmindsetbannerdark.jpg" />
+
+</div>
+<div class="container">
+    <div class='search-box' style="margin-bottom:20px;">
+        <form action="\Search/" method="get" class='search-form'>
+            <input class='form-control' placeholder='Search for anything...' name="input" type='text'>
+            <button class='btn btn-link search-btn'>
+                <i class='glyphicon glyphicon-search'></i>
+            </button>
+        </form>
+    </div>
+    <div class="advertresult" style="display:none;">
+        <div class="container-fluid">
+            <div class="col-md-2">
+                <br />
+                <img style="width:100%;" src="~/Content/Images/nextclip.jpg" />
+            </div>
+            <div class="col-md-10">
+                <a href="http://www.nextmindset.co.uk" target="_blank"><h3>Environmentally Friendly | Recyclable | Reusable</h3></a>
+                <a href="http://www.nextmindset.co.uk" target="_blank"><h4><span style="padding:1px; border-radius:3px; border:1px solid green;">Ad</span> http://:www.nextmindset.com</h4></a>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <p>The best resource for sustainable daily life-style products.</p>
+                <p>Shop here and save our planet.</p>
+            </div>
+        </div>
+    </div>
+    @{ int n = 0;}
+    @{ string input = ViewBag.input.ToLower();
+        string article;
+        List<string> Displayed = new List<string>();
+    }
+    @foreach (var item in Model)
+    {
+        article = item.Title.ToLower();
+        if (article.Contains(input))
+        {
+            n++;
+    <div class="results">
+        <div class="custom-panel">
+            <div class="container-fluid">
+                <div class="col-md-2">
+                    <img style="width:100%;" src="~/Content/Images/@item.Image" />
+                </div>
+                <div class="col-md-10">
+                    <p style="color:darkgrey;font-size:70%;margin:0;margin-bottom:-15px;">Search phrase found in title...</p>
+                    <a href="\Blog/Article/@item.Art_Id"><h3>@item.Title</h3></a>
+                    <a href="\Home/Index"><h4>http://:www.regularreads.com</h4></a>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <p>@item.Snippet</p>
+                </div>
+            </div>
+        </div>
+    </div>
+            Displayed.Add(article);
+        }
+    }
+    @foreach (var item in Model)
+    {
+        article = item.Lead.ToLower();
+        if (input == null) {
+            break;
+        }   
+        else if (article.Contains(input))
+        {
+            string articleooo = item.Title.ToLower();
+            if (Displayed.Contains(articleooo))
+            {
+                <div style="margin:0; padding:0; height:1px;"></div>
+            }
+            else
+            {
+                n++;
+                <div class="results">
+                    <div class="custom-panel">
+                        <div class="container-fluid">
+                            <div class="col-md-2">
+                                <img style="width:100%;" src="~/Content/Images/@item.Image" />
+                            </div>
+                            <div class="col-md-10">
+                                <p style="color:darkgrey;font-size:70%;margin:0;margin-bottom:-15px;">Search phrase found in lead paragraph...</p>
+                                <a href="\Blog/Article/@item.Art_Id"><h3>@item.Title</h3></a>
+                                <a href="\Home/Index"><h4>http://:www.regularreads.com</h4></a>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <p>@item.Snippet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                Displayed.Add(articleooo);
+            }
+        }
+    }
+    @foreach (var item in Model)
+    {
+        article = item.Snippet.ToLower();
+        if (input == null)
+        {
+            break;
+        }
+        else if (article.Contains(input))
+        {
+            string articleo = item.Title.ToLower();
+            if (Displayed.Contains(articleo))
+            {
+                <div style="margin:0; padding:0; height:1px;"></div>
+            }
+            else
+            {
+                n++;
+                <div class="results">
+                    <div class="custom-panel">
+                        <div class="container-fluid">
+                            <div class="col-md-2">
+                                <img style="width:100%;" src="~/Content/Images/@item.Image" />
+                            </div>
+                            <div class="col-md-10">
+                                <p style="color:darkgrey;font-size:70%;margin:0;margin-bottom:-15px;">Search phrase found in lead paragraph..</p>
+                                <a href="\Blog/Article/@item.Art_Id"><h3>@item.Title</h3></a>
+                                <a href="\Home/Index"><h4>http://:www.regularreads.com</h4></a>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <p>@item.Snippet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                Displayed.Add(articleo);
+            }
+        }
+    }
+    @foreach (var item in Model)
+    {
+        article = item.Content.ToLower();
+        if (input == "null")
+        {
+            break;
+        }
+        else if (article.Contains(input))
+        {
+            string articleoo = item.Title.ToLower();
+            if (Displayed.Contains(articleoo))
+            {
+                <div style="margin:0; padding:0; height:1px;"></div>
+            }
+            else
+            {
+                n++;
+                <div class="results">
+                    <div class="custom-panel">
+                        <div class="container-fluid">
+                            <div class="col-md-2">
+                                <img style="width:100%;" src="~/Content/Images/@item.Image" />
+                            </div>
+                            <div class="col-md-10">
+                                <p style="color:darkgrey;font-size:70%;margin:0;margin-bottom:-15px;">Search phrase found in article text...</p>
+                                <a href="\Blog/Article/@item.Art_Id"><h3>@item.Title</h3></a>
+                                <a href="\Home/Index"><h4>http://:www.regularreads.com</h4></a>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <p>@item.Snippet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                Displayed.Add(articleoo);
+            }
+        }
+    }
+
+</div>
+
+<div style="width:100%; text-align:center;">
+    We found @n articles related to your search!
+</div>
+
